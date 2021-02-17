@@ -35,12 +35,14 @@ exports.handler = async (event) => {
     }
   }
 
-  console.log(`Scheduing next dose appointment for user: ${body.userId}`)
+  const userId = body.userId;
+
+  console.log(`Scheduing next dose appointment for user: ${userId}`)
 
   const nextDoseDate = getNextDoseDate(body.firstDoseDate)
 
   return {
     statusCode: 200,
-    body: `Next dosage is on: ${nextDoseDate}`,
+    body: `Next dosage for user ${userId} is on: ${nextDoseDate}`,
   };
 };
