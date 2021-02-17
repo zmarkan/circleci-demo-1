@@ -66,6 +66,13 @@
 							"uri": "arn:aws:acm:us-east-1:123456789012:certificate/00000000-0000-0000-0000-000000000000"
 						}
 					}
+				},
+				"ApiEndpoint02": {
+					"ScheudleNextDose01": {
+						"type": "connection.trigger",
+						"from": "ApiEndpoint02",
+						"to": "ScheudleNextDose01"
+					}
 				}
 			},
 			"resources": {
@@ -79,6 +86,10 @@
 						{
 							"type": "ref",
 							"id": "ApiEndpoint01"
+						},
+						{
+							"type": "ref",
+							"id": "ApiEndpoint02"
 						}
 					],
 					"id": "VaccinationGw01"
@@ -169,6 +180,26 @@
 					"dnsRegistration": true,
 					"id": "DemoDomain01",
 					"zoneId": "Z021654138SAVR1ILIKZ5"
+				},
+				"ApiEndpoint02": {
+					"type": "resource.api.endpoint",
+					"name": "api-endpoint-1",
+					"method": "POST",
+					"path": "/scheduleNextDose",
+					"api": {
+						"type": "ref",
+						"id": "VaccinationGw01"
+					},
+					"id": "ApiEndpoint02"
+				},
+				"ScheudleNextDose01": {
+					"type": "resource.compute.function",
+					"name": "scheudleNextDose",
+					"entryPoint": "functions/scheudleNextDose.handler",
+					"memory": 512,
+					"runtime": "nodejs12.x",
+					"timeout": 6,
+					"id": "ScheudleNextDose01"
 				}
 			},
 			"metadata": {
@@ -218,6 +249,11 @@
 							"x": 70,
 							"y": 20,
 							"z": 0
+						},
+						"ScheudleNextDose01": {
+							"x": 500,
+							"y": 108,
+							"z": 0
 						}
 					}
 				}
@@ -239,6 +275,11 @@
 				"VACCINES_HOST_NAME": {
 					"paths": [
 						"connections/DemoDomain01/VaccinationGw01/hostname"
+					]
+				},
+				"DNS_ZONE_ID": {
+					"paths": [
+						"resources/DemoDomain01/zoneId"
 					]
 				}
 			}
