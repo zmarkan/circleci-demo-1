@@ -41,6 +41,6 @@ exports.handler = async (event) => {
 
   return {
     statusCode: 200,
-    body: `${nextDoseDate}`,
+    body: `Next dosage is on: ${nextDoseDate}`,
   };
 };
