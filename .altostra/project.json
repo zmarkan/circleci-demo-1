@@ -169,6 +169,24 @@
 					"dnsRegistration": true,
 					"id": "DemoDomain01",
 					"zoneId": "Z021654138SAVR1ILIKZ5"
+				},
+				"S3Service01": {
+					"name": "s3-service",
+					"type": "resource.vendor.service",
+					"service": "aws.s3",
+					"id": "S3Service01"
+				},
+				"RekognitionService01": {
+					"name": "rekognition-service",
+					"type": "resource.vendor.service",
+					"service": "aws.rekognition",
+					"id": "RekognitionService01"
+				},
+				"S3Service02": {
+					"name": "s3-service",
+					"type": "resource.vendor.service",
+					"service": "aws.s3",
+					"id": "S3Service02"
 				}
 			},
 			"metadata": {
@@ -215,6 +233,21 @@
 							"z": 0
 						},
 						"DemoDomain01": {
+							"x": 70,
+							"y": 20,
+							"z": 0
+						},
+						"S3Service01": {
+							"x": 70,
+							"y": 20,
+							"z": 0
+						},
+						"RekognitionService01": {
+							"x": 70,
+							"y": 20,
+							"z": 0
+						},
+						"S3Service02": {
 							"x": 70,
 							"y": 20,
 							"z": 0
